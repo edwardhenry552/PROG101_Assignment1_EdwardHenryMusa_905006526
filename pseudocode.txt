@@ -1,0 +1,75 @@
+START FloodEarlyWarning
+
+CONSTANT RAIN_LIMIT = 50
+CONSTANT RIVER_WARNING = 3.5
+CONSTANT RIVER_DANGER = 5.0
+
+DECLARE location AS String
+DECLARE rainfall, riverLevel AS Decimal
+DECLARE riskLevel, message AS String
+DECLARE continueCheck AS Boolean
+
+SET continueCheck = TRUE
+
+WHILE continueCheck = TRUE
+  CALL getInput(location, rainfall, riverLevel)
+  IF validateData(rainfall, riverLevel) = FALSE THEN
+    DISPLAY "Invalid reading. Try again."
+  ELSE
+    SET riskLevel = calculateRisk(rainfall, riverLevel)
+    IF riskLevel = "Low" THEN
+      DISPLAY "No alert needed."
+    ELSE
+      SET message = generateAlert(location, riskLevel)
+      CALL sendAlert(location, message)
+    END IF
+    CALL logAlert(location, riskLevel)
+  END IF
+  DISPLAY "Check another location? (Y/N)"
+  INPUT answer
+  IF answer = "N" THEN
+    SET continueCheck = FALSE
+  END IF
+END WHILE
+
+END FloodEarlyWarning
+
+
+FUNCTION validateData(rainfall, riverLevel)
+  IF rainfall < 0 OR riverLevel < 0 THEN
+    RETURN FALSE
+  END IF
+  RETURN TRUE
+END FUNCTION
+
+
+FUNCTION calculateRisk(rainfall, riverLevel)
+  IF riverLevel >= RIVER_DANGER OR (rainfall > RAIN_LIMIT AND riverLevel >= RIVER_WARNING) THEN
+    RETURN "High"
+  ELSE IF riverLevel >= RIVER_WARNING OR rainfall > RAIN_LIMIT THEN
+    RETURN "Medium"
+  ELSE
+    RETURN "Low"
+  END IF
+END FUNCTION
+
+
+FUNCTION generateAlert(location, riskLevel)
+  IF riskLevel = "High" THEN
+    RETURN "DANGER: Flooding likely in " + location + ". Evacuate now."
+  ELSE
+    RETURN "WARNING: Flood risk rising in " + location + ". Stay alert."
+  END IF
+END FUNCTION
+
+
+FUNCTION sendAlert(location, message)
+  FOR EACH contact IN registeredContacts(location)
+    SEND SMS message TO contact
+  END FOR
+END FUNCTION
+
+
+FUNCTION logAlert(location, riskLevel)
+  SAVE location, riskLevel, currentDateTime TO alertLog
+END FUNCTION
