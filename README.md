@@ -1,8 +1,8 @@
-# PROG101 Assignment 1: Flood Early Warning Alert System
+# PROG102 Assignment 1: Flood Early Warning Alert System
 
 **Student:** Edward Henry Musa  
 **Student ID:** 905006526  
-**Course:** PROG101 Principles of Programming Logic and Design  
+**Course:** PROG102 Principles of Programming Logic and Design  
 **University:** Limkokwing University of Creative Technology, Sierra Leone  
 **Examiner:** Elijah Fullah
 
