@@ -73,3 +73,14 @@ END FUNCTION
 FUNCTION logAlert(location, riskLevel)
   SAVE location, riskLevel, currentDateTime TO alertLog
 END FUNCTION
+FUNCTION getInput()
+    DISPLAY "Enter location:"
+    INPUT location
+
+    DISPLAY "Enter rainfall measurement:"
+    INPUT rainfall
+
+    DISPLAY "Enter river level:"
+    INPUT riverLevel
+END FUNCTION
+
