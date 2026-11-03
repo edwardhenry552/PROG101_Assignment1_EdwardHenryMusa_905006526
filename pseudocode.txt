@@ -36,10 +36,15 @@ END FloodEarlyWarning
 
 
 FUNCTION validateData(rainfall, riverLevel)
-  IF rainfall < 0 OR riverLevel < 0 THEN
-    RETURN FALSE
-  END IF
-  RETURN TRUE
+  IF rainfall IS NOT NUMERIC OR riverLevel IS NOT NUMERIC THEN
+        RETURN FALSE
+    END IF
+
+    IF rainfall < 0 OR riverLevel < 0 THEN
+        RETURN FALSE
+    END IF
+
+    RETURN TRUE
 END FUNCTION
 
 
