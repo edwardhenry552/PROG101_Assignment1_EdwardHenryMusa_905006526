@@ -83,4 +83,12 @@ FUNCTION getInput()
     DISPLAY "Enter river level:"
     INPUT riverLevel
 END FUNCTION
+FUNCTION registeredContacts(location)
+    DECLARE matchingContacts AS List
+
+    SET matchingContacts = FIND contacts
+    WHERE registeredLocation = location
+
+    RETURN matchingContacts
+END FUNCTION
 
