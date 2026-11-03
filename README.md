@@ -2,7 +2,7 @@
 
 **Student:** Edward Henry Musa  
 **Student ID:** 905006526  
-**Course:** PROG102 Principles of Programming Logic and Design  
+**Course:** PROG101 Principles of Programming Logic and Design  
 **University:** Limkokwing University of Creative Technology, Sierra Leone  
 **Examiner:** Elijah Fullah
 
