@@ -1,4 +1,4 @@
-# PROG102 Assignment 1: Flood Early Warning Alert System
+# PROG101 Assignment 1: Flood Early Warning Alert System
 
 **Student:** Edward Henry Musa  
 **Student ID:** 905006526  
