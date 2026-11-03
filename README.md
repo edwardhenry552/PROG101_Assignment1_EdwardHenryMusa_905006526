@@ -34,8 +34,9 @@ Computational thinking, algorithm design, variables, constants, data types, deci
 ## Open Source and Digital Public Good
 The design is intended to be open source so local developers and councils can adapt it, and it could become a Digital Public Good by being freely usable, accessible by basic phones, and open to community contribution.
 
-## Repository Contents
-- `PROG101_Assignment1_Report.docx`: full report
+##Repository Contents
+- `PROG102_Assignment1_Report 10 1.pdf`: full report
+- `Algorithm.md`: step-by-step algorithm
 - `pseudocode.txt`: pseudocode
-- `flowcharts/`: flowchart images
+- `Flowchart1.jpeg.jpeg` to `Flowchart4.jpeg.jpeg`: flowchart images
 - `README.md`: this file
